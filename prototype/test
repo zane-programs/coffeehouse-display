@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+const express = require("express"); // Express web framework
+
+const app = express(); // init
+
+// change for error message
+const notFoundText = "404 Not Found";
+
+app.use((req, res, next) => {
+	// for testing CSS, JS, etc.
+	res.setHeader('cache-control', 'no-cache');
+	next();
+});
+
+// this file shouldn't be accessible
+app.get("/test", (req, res) => {
+	res.status(404).send(notFoundText);
+});
+
+// disable node_modules folder
+app.get("/node_modules*", (req, res) => {
+	res.status(404).send(notFoundText);
+});
+
+// static files
+app.use(express.static(__dirname));
+
+// 404 catch all
+app.get("*", (req, res) => {
+	res.status(404).send(notFoundText);
+});
+
+// listen on port 3000
+const listener = app.listen(3000, () => {
+	console.log(`Server listening on port ${listener.address().port}`);
+});

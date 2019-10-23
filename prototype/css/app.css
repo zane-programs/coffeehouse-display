@@ -1,0 +1,156 @@
+html, body, main {
+	overflow: hidden;
+	background: #000;
+}
+
+#video-container {
+	pointer-events: none;
+
+	width: calc(100 * var(--vw));
+	height: calc(100 * var(--vh));
+
+	padding: 0px;
+	margin: 0px;
+
+	border: none;
+	border-radius: 0px;
+
+	z-index: 1;
+}
+
+div.overlay-content {
+	position: absolute;
+	width: calc(100 * var(--vw));
+	height: calc(100 * var(--vh));
+
+	z-index: 2;
+
+	user-select: none;
+}
+
+/*div.fullscreen-btn {
+	position: absolute;
+	width: 75px;
+	height: 75px;
+
+	background: rgba(0, 0, 0, 0.25);
+	color: #fff;
+
+	bottom: 15px;
+	right: 15px;
+
+	z-index: 3;
+}
+*/
+/*div.fullscreen-btn div.icon-outer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+div.fullscreen-btn div.icon-outer i {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}*/
+
+h1.main-heading {
+	height: auto;
+
+	position: absolute;
+
+	color: #fff;
+
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.35);
+
+	font-family: 'Roboto', sans-serif;
+
+	transition: all 200ms ease;
+}
+
+h1.main-heading.centered {
+	width: 100vw;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	font-size: 4.5vw;
+
+	text-align: center;
+}
+
+h1.main-heading.bottom {
+	width: auto;
+	bottom: 25px;
+
+	font-size: 2.5vw;
+}
+
+h1.main-heading.bottom.left {
+	left: 25px;
+}
+
+/* may not be used, looks bad */
+h1.main-heading.bottom.right {
+	right: 25px;
+}
+
+div.fullscreen-btn {
+	z-index:6;
+
+	width: 75px;
+	height: 75px;
+
+	background: #333 !important;
+
+	opacity: 0.5;
+
+	border-radius: 50%;
+
+	cursor: pointer;
+
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+
+	transform: scale(0.8);
+
+	transition: all 200ms ease;
+}
+
+div.fullscreen-btn:hover {
+	opacity: 0.85;
+	transform: scale(1);
+}
+
+div.fullscreen-btn i {
+	color: #fff;
+	font-size: 50px;
+
+	user-select: none;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+div.fullscreen-btn i {
+	transition: transform 200ms cubic-bezier(.29,2.95,.67,.67);
+}
+
+div.exit-btn-ctnr i.main-icon {
+	transition: all 200ms ease;
+}
+
+div.fullscreen-btn:active i {
+	transform: translate(-50%, -50%) scale(1.3);
+}
+
+div.fullscreen-btn, div.exit-btn-ctnr {
+	display: block;
+}
