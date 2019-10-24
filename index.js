@@ -4,7 +4,7 @@ const express = require("express");
 const app = express(); // init express app
 
 const server = require("http").createServer(app); // wrap app in HTTP server
-const io = require("socket.io")(server); // init soclet.io server
+const io = require("socket.io")(server); // init socket.io server
 
 // const redisClient = redis.createClient(); // init redis client
 
