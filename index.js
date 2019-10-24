@@ -60,8 +60,8 @@ adminSocket.on("connection", socket => {
 
 app.use((req, res, next) => {
     req.headers['if-none-match'] = 'no-match-for-this';
-	res.setHeader("Cache-Control", 'no-cache');
-	next();
+    res.setHeader("Cache-Control", 'no-cache');
+    next();
 });
 
 app.use(express.static(__dirname + "/static"));
