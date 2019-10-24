@@ -95,7 +95,7 @@ h1.main-heading.bottom {
 	width: auto;
 	bottom: 25px;
 
-	font-size: calc(2.5 * var(--vw));
+	font-size: calc(3 * var(--vw));
 }
 
 h1.main-heading.bottom.left {

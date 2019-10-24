@@ -126,6 +126,8 @@ window.togglePause = () => console.log("Player still loading");
         mainHeading.innerText = config.headingText;
         mainHeading.classList.remove("heading-hidden"); // unhide heading after loading it
 
+        document.querySelector("h1.main-heading").style.color = `rgb(${config.headingColor[0]}, ${config.headingColor[1]}, ${config.headingColor[2]})`;
+
         // PLAYER INIT
         let player;
         const onYouTubePlayerAPIReady = () => {
@@ -178,21 +180,13 @@ window.togglePause = () => console.log("Player still loading");
         socket.emit("player-state", {playing: true});
     });
 
-    /*
-let displayConfig = {
-    youtubeId: "ZY3J3Y_OU0w",
-    headingText: "Fall Coffeehouse 2019",
-    position: ["centered"],
-    playing: true
-};
-    */
     socket.on("display-update-config", configData => {
         let configKeys = Object.keys(configData);
         for (let i = 0; i < configKeys.length; i++) {
             let key = configKeys[i];
             if (key === "youtubeId") {
                 try {
-                    loadVideoById(configData[key]);
+                    player.loadVideoById(configData[key]);
                 } catch (e) {
                     console.error(e);
                 }
@@ -208,6 +202,9 @@ let displayConfig = {
                 } catch (e) {
                     console.error(e);
                 }
+            } else if (key === "headingColor") {
+                let color = configData[key];
+                document.querySelector("h1.main-heading").style.color = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
             }
         }
     });
