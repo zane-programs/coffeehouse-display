@@ -72,17 +72,21 @@ h1.main-heading {
 
 	font-family: 'Roboto', sans-serif;
 
-	transition: all 200ms ease;
+	/*transition: all 200ms ease;*/
 }
 
 h1.main-heading.centered {
-	width: 100vw;
+	width: calc(100 * var(--vw));
+
+	margin: 0px;
+	padding: 0px;
+	border: none;
 
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 
-	font-size: 4.5vw;
+	font-size: calc(4.5 * var(--vw));
 
 	text-align: center;
 }
@@ -91,7 +95,7 @@ h1.main-heading.bottom {
 	width: auto;
 	bottom: 25px;
 
-	font-size: 2.5vw;
+	font-size: calc(2.5 * var(--vw));
 }
 
 h1.main-heading.bottom.left {
@@ -101,6 +105,10 @@ h1.main-heading.bottom.left {
 /* may not be used, looks bad */
 h1.main-heading.bottom.right {
 	right: 25px;
+}
+
+h1.main-heading.heading-hidden {
+	display: none;
 }
 
 div.fullscreen-btn {

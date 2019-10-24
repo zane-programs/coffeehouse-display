@@ -1,0 +1,23 @@
+{
+  "name": "coffeehouse-display",
+  "version": "1.0.0",
+  "description": "Coffehouse music show display",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zane-programs/coffeehouse-display.git"
+  },
+  "author": "Zane St. John",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zane-programs/coffeehouse-display/issues"
+  },
+  "homepage": "https://github.com/zane-programs/coffeehouse-display#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

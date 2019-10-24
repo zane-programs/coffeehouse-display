@@ -131,8 +131,37 @@
     window.togglePause = togglePause;
     window.onYouTubePlayerAPIReady = onYouTubePlayerAPIReady;
 
+    // MOUSE MOVING TIMER
+    let debugIterations = 0;
+    let timer = 0;
+    let mouseHidden = false;
+    const mouseCheckLoop = () => {
+        debugIterations++;
+        timer++;
+
+        console.log(`TIMER at ${timer}, ${debugIterations} interval iterations`);
+
+        if (timer >= 3) {
+            mouseHidden = true;
+            document.body.classList.add("mouse-hidden");
+            clearInterval(mouseCheckInterval);
+        }
+    }
+
+    let mouseCheckInterval = setInterval(mouseCheckLoop, 1000);
+
+    const handleMouseMove = event => {
+        timer = 0;
+        clearInterval(mouseCheckInterval);
+        document.body.classList.remove("mouse-hidden");
+        mouseCheckInterval = setInterval(mouseCheckLoop, 1000);
+        // console.log(event);
+    };
+
     // SOCKET.IO PROGRAMMING
+    // this is prototype, so nothing
 
     document.addEventListener('DOMContentLoaded', pageContentLoaded);
     document.querySelector('div.fullscreen-btn').addEventListener('click', toggleFullScreen);
+    window.addEventListener("mousemove", handleMouseMove);
 })(window);
